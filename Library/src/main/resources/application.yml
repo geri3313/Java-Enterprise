@@ -1,0 +1,16 @@
+spring:
+  # Database
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/library
+    username: root
+    password: root
+  # JPA properties
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+# Server configuration
+server:
+  port: 8080
