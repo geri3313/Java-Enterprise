@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   `mobile_number` varchar(20) NOT NULL,
   `pwd` varchar(200) NOT NULL,
   `role_id` int NOT NULL,
+  `photoUrl` varchar(100) NULL , -- foto profili per personat
   `address_id` int NULL,
   `created_at` TIMESTAMP NOT NULL,
   `created_by` varchar(50) NOT NULL,
@@ -100,3 +101,6 @@ CREATE TABLE IF NOT EXISTS `person_courses` (
   FOREIGN KEY (course_id) REFERENCES courses(course_id),
    PRIMARY KEY (`person_id`,`course_id`)
 );
+
+ALTER TABLE person
+ADD COLUMN photo_url VARCHAR(255); --Shtimi i kolones per URL-ne e fotos

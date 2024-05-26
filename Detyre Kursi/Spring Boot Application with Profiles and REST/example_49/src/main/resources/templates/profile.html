@@ -41,13 +41,17 @@ Author URL: http://w3layouts.com
         <div class="container py-md-5 py-4">
             <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
                 <h3 class="title-style">My Profile</h3>
+                <div class="profile-picture">
+                    <img th:src="@{${profile.photoUrl}}" alt="Profile Picture" style="max-width: 150px; max-height: 150px;" />
+                </div>                                                              
+                
             </div>
             <div class="row login-block">
                 <div class="col-md-7 login-center">
                     <ul>
                         <li class="alert alert-danger" role="alert" th:each="error : ${#fields.errors('profile.*')}" th:text="${error}" />
                     </ul>
-                    <form th:action="@{/updateProfile}" method="post" class="signin-form" th:object="${profile}">
+                    <form th:action="@{/updateProfile}" method="post" class="signin-form" th:object="${profile}" enctype="multipart/form-data">
                         <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
                             <h5 class="footer-title-29">Personal Details</h5>
                         </div>
@@ -90,11 +94,22 @@ Author URL: http://w3layouts.com
                                 </div>
                             </div>
                         </div>
+                        <div class="input-grids">
+                            <label class="control-label" for="profilePicture">Upload Profile Picture:</label>
+                            <input type="file" name="profilePicture" id="profilePicture" class="contact-input" accept="image/*" />
+                        </div>
+                        <!-- <div class="submit text-center">
+                            <button class="btn btn-style btn-primary" type="submit">Update Profile</button>
+                        </div> -->
+
                         <div class="col-md-8 login-center text-start">
-                            <button class="btn btn-style btn-style-3 text-left" >Update</button>
+                            <button class="btn btn-style btn-primary" type="submit">Update</button>
+                            <!-- <button class="btn btn-style btn-style-3 text-left" >Update</button> -->
                             <a th:href="@{/dashboard}" class="new-user text-right">
                                 <button class="btn btn-style btn-style-3 text-left" th:formaction="@{/dashboard}">BACK</button></a>
                         </div>
+
+
 
                     </form>
                 </div>

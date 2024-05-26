@@ -699,6 +699,11 @@ progress {
   }
 }
 
+.course-image {
+  width: 100px;
+  height: auto;
+}
+
 .row {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
